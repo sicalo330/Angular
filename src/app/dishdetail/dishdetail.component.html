@@ -1,1 +1,36 @@
-<p>dishdetail works!</p>
+<div class="container"
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign.gt-md="space-around center"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0">
+
+  <div fxFlex="40">
+    <mat-card *ngIf="dish">
+        <h1>{{dish.name}}</h1>
+        <img src="{{dish.image}}">
+        <p>{{dish.description}}</p>
+    </mat-card>
+    <mat-card-actions>
+        <button mat-button>Like</button>
+        <button mat-button>Share</button>
+    </mat-card-actions>
+  </div>
+
+  <div fxFlex="40">
+    <mat-list *ngIf="dish">
+        <h1>Coments</h1>
+        <mat-card *ngFor="let comment of dish.comments">
+            <p>
+                <span>{{comment.comment}}</span>
+                <br>
+                <span>{{comment.rating}} stars</span>
+                <br>
+                <span>--{{comment.author}}</span>
+            </p>
+        </mat-card>
+    </mat-list>
+  </div>
+
+</div>
