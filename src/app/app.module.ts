@@ -15,6 +15,9 @@ import 'hammerjs';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component'
 
+//Esto es un servicio de angular por lo tanto se debe poner en providers y no en imports
+import { DishService } from './services/dish.service';
+
 //Todas las importaciones que haga se deben exportar en la sección llamada imports
 
 @NgModule({
@@ -34,7 +37,7 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component'
     MatCardModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [ DishService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
