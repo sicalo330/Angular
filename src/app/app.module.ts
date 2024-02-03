@@ -20,6 +20,7 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component'
 
 //Esto es un servicio de angular por lo tanto se debe poner en providers y no en imports
 import { DishService } from './services/dish.service';
+import { PromotionService} from './services/promotion.service';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -32,6 +33,7 @@ export const routes:Routes = [
   {path:'home',component:HomeComponent},
   {path:'about', component:AboutComponent},
   {path:'contact',component:ContactComponent},
+  {path:'menu',component:MenuComponent},
   {path:'', redirectTo:'/home',pathMatch:'full'},
 ]
 
@@ -61,7 +63,7 @@ export const routes:Routes = [
     MatButtonModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ DishService],
+  providers: [ DishService, PromotionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
