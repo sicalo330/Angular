@@ -7,6 +7,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from "@angular/material/button";
+import {MatDialogModule} from '@angular/material/dialog';
 
 import 'hammerjs';
 
@@ -14,22 +15,23 @@ import 'hammerjs';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 
+//Estos son los componentes que he creado
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component'
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
 
 //Esto es un servicio de angular por lo tanto se debe poner en providers y no en imports
 import { DishService } from './services/dish.service';
 import { PromotionService} from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
-
-
+//Esto permite crear el nombre de las rutas y mostrará el componente deseado
 export const routes:Routes = [
   {path:'home',component:HomeComponent},
   {path:'about', component:AboutComponent},
@@ -40,7 +42,8 @@ export const routes:Routes = [
 ]
 
 
-//Todas las importaciones que haga se deben exportar en la sección llamada imports
+//Todas las importaciones que haga se deben exportar en la sección llamada imports y los componentes deben ser puestos en declarations aunque eso angular CLI lo hace automáticamente
+//
 
 @NgModule({
   declarations: [
@@ -51,7 +54,8 @@ export const routes:Routes = [
     FooterComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ export const routes:Routes = [
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
+    MatDialogModule,
     RouterModule.forRoot(routes)
   ],
   providers: [ DishService, PromotionService, LeaderService],
