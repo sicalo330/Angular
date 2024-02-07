@@ -20,7 +20,7 @@ export class DishdetailComponent implements OnInit {
   ngOnInit(): void {
     //Esto permitirá al path saber cuál id es cuál poniendo /dishdetail/9 por ejemplo
     let id = this.activatedRoute.snapshot.params['id'];
-    this.dish = this.dishService.getDish(id)
+    this.dishService.getDish(id).then(dish => this.dish = dish);
   }
 
   goBack(): void{
